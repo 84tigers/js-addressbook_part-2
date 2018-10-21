@@ -19,12 +19,12 @@ class AddressBook {
     }
     get() {
         // for (let contact of this.contacts) {
-        //   console.log(book[0].contact.name);
-          const container = document.querySelector(".id-card");
-          container.innerHTML = "";
-          const p = document.createElement("p");
-          p.innerText = `Name:  Email:  Phone:  Relation: `;
-          container.appendChild(p);
+          console.log(this.contacts[1].name, this.contacts[1].email, this.contacts[1].phone, this.contacts[1].relation); //proper calling contacts ++ prints bob, bob@bob...
+          // const container = document.querySelector(".id-card");
+          // container.innerHTML = "";
+          // const p = document.createElement("p");
+          // p.innerText = `Name:  Email:  Phone:  Relation: `;
+          // container.appendChild(p);
         // }
     }
 };
