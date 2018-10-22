@@ -1,5 +1,11 @@
 "use strict";
 
+//  listens for 'add' button and sends input values to address book
+document.querySelector('button').addEventListener("click", () => {
+  const inputs = document.querySelectorAll("input");
+  console.log(inputs[0].value, inputs[1].value)
+  book.add(new Contact(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value))
+});
 
 
 
@@ -8,24 +14,29 @@ class AddressBook {
       this.contacts = [
         new Contact("bob", "bob@bob.com", "111", "weird neighbor"),
         new Contact("steve", "steve@steve.com", "111", "that uncle"),
+        new Contact("merle", "merle@haggard.com", "888", "dad"),
         new Contact("sally", "sally@sally.com", "111", "the mom")
       ];
     }
     add(info) {
+      
       this.contacts.push(info);
+      this.display();
     }
     deleteAt(index) {
-      this.contacts.splice(index, 1);
+      // this.contacts.splice(index, 1);
     }
-    get() {
-        // for (let contact of this.contacts) {
-          console.log(this.contacts[1].name, this.contacts[1].email, this.contacts[1].phone, this.contacts[1].relation); //proper calling contacts ++ prints bob, bob@bob...
-          // const container = document.querySelector(".id-card");
-          // container.innerHTML = "";
-          // const p = document.createElement("p");
-          // p.innerText = `Name:  Email:  Phone:  Relation: `;
-          // container.appendChild(p);
-        // }
+    display() {
+          console.log(this.contacts.length);
+            for(var i = 0; i < this.contacts.length; i++) {
+            console.log(i);
+            const container = document.querySelectorAll(".id-card")[i];
+            container.style.display = "inline-flex";
+            container.innerHTML = "";
+            const p = document.createElement("p");
+            p.innerText = `Name: ${this.contacts[i].name}\n\nEmail: ${this.contacts[i].email}\n\nPhone: ${this.contacts[i].phone}\n\nRelation: ${this.contacts[i].relation}`;
+            container.appendChild(p);
+          } 
     }
 };
 
@@ -40,18 +51,7 @@ class Contact {
 
 
 const book = new AddressBook();
-book.get();
-// const display = (contact) => {
-//     const container = document.querySelector(".id-card");
-//     container.innerHTML = "";
-//     const p = document.createElement("p");
-//     p.innerText = `Name: ${book.contact[0].name} Email: ${book.contact[0].email} Phone: ${book.contact[0].phone} Relation: ${book.contact[0].relation}`;
-//     container.appendChild(p);
-    
-//     // displayTotal(total);
-// };
-
-// get();
+book.display();
 
 
 //                 ************************** ORIGINAL ADRESS BOOK *****************************

@@ -12,7 +12,7 @@ body {
 }
 
 .bckgrd-ovrly {
-    width: 1200px;
+    width: 100vw;
     /* height: 600px; */
     height: 100%;
 
@@ -33,8 +33,8 @@ main {
     background-image: url("images/bckgrnd.jpg");
     background-size: cover;
     background-position: left center;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    /* height: 100vh; */
     /* display: flex;
     flex-direction: column;
     justify-content: center; */
@@ -108,22 +108,24 @@ button {
     /* height: 100px; */
     padding: 4px;
     margin-bottom: 0.8em;
-
+    display: none;
 }
 
 .trash-container {
     width: 300px;
     height: 100%;
     position: absolute;
+    /* display: none; */
 }
 
 .trash {
     border: 1px solid black;
     border-radius: 100%;
+    background-color: #fff;
     position: relative;
     bottom: -15px;
     left: 290px;
-    background-color: #fff;
+    /* visibility: hidden; */
 }
 
 p {
